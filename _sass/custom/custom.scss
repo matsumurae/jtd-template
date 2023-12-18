@@ -1,0 +1,119 @@
+// https://just-the-docs.com/docs/utilities/color/
+$red: #dd2e2e;
+$yellow: #e7af06;
+$purple: #381885;
+$green: #026e57;
+$blue: #2869e6;
+$dark: #27262b;
+$grey: #959396;
+// https://mdbootstrap.com/docs/standard/content-styles/colors/
+$pink: #F48FB1;
+$lime: #AFB42B;
+$orange: #EF6C00;
+
+// Make big size
+
+$sidebar-width: 16.5rem;
+
+.site-footer {
+    display: none;
+}
+
+@media (min-width: 800px) {
+    .side-bar {
+        width: $sidebar-width;
+    }
+    .site-nav {
+        padding-top: 1rem;
+    }
+    .main {
+        margin-left: $sidebar-width;
+        max-width: 100%;
+    }
+}
+
+// Color text
+
+.text-pink {
+    color: $pink;
+}
+.text-lime {
+    color: $lime;
+}
+.text-orange {
+    color: $orange;
+}
+
+// Blockquote custom styles for speakers
+
+blockquote {
+    h4 {
+        font-weight: bold;
+    }
+    p {
+        margin: 0;
+    }
+}
+
+.blockquote {
+    &--red {
+        border-left: 4px solid $red;
+        h4 {
+            color: $red;
+        }
+    }
+    &--yellow {
+        border-left: 4px solid $yellow;
+        h4 {
+            color: $yellow;
+        }
+    }
+    &--purple {
+        border-left: 4px solid $purple;
+        h4 {
+            color: $purple;
+        }
+    }
+    &--green {
+        border-left: 4px solid $green;
+        h4 {
+            color: $green;
+        }
+    }
+    &--blue {
+        border-left: 4px solid $blue;
+        h4 {
+            color: $blue;
+        }
+    }
+    &--dark {
+        border-left: 4px solid $dark;
+        h4 {
+            color: $dark;
+        }
+    }
+    &--grey {
+        border-left: 4px solid $grey;
+        h4 {
+            color: $grey;
+        }
+    }
+    &--pink {
+        border-left: 4px solid $pink;
+        h4 {
+            color: $pink;
+        }
+    }
+    &--lime {
+        border-left: 4px solid $lime;
+        h4 {
+            color: $lime;
+        }
+    }
+    &--orange {
+        border-left: 4px solid $orange;
+        h4 {
+            color: $orange;
+        }
+    }
+}
