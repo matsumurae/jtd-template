@@ -7,29 +7,16 @@ $blue: #2869e6;
 $dark: #27262b;
 $grey: #959396;
 // https://mdbootstrap.com/docs/standard/content-styles/colors/
-$pink: #F48FB1;
-$lime: #AFB42B;
-$orange: #EF6C00;
+$pink: #f48fb1;
+$lime: #afb42b;
+$orange: #ef6c00;
 
-// Make big size
+// Make template FULL size
 
 $sidebar-width: 16.5rem;
 
 .site-footer {
     display: none;
-}
-
-@media (min-width: 800px) {
-    .side-bar {
-        width: $sidebar-width;
-    }
-    .site-nav {
-        padding-top: 1rem;
-    }
-    .main {
-        margin-left: $sidebar-width;
-        max-width: 100%;
-    }
 }
 
 // Color text
@@ -115,5 +102,48 @@ blockquote {
         h4 {
             color: $orange;
         }
+    }
+}
+
+// Update search to be full width
+.search-input-wrap {
+    max-width: 100%;
+}
+.search-results,
+.search-active .search-input-wrap {
+    width: 100%;
+}
+
+// Fixed navbar
+.main-header {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+@media (max-width: 50rem) {
+    .main-header .site-header {
+        display: none;
+    }
+}
+@media (min-width: 50rem) {
+    .site-header {
+        width: 15.5rem;
+    }
+    .side-bar {
+        padding-top: 3.75rem;
+        width: $sidebar-width;
+        .site-header {
+            display: none;
+        }
+    }
+    .main {
+        display: flex;
+        height: 100%;
+        padding-top: 3.75rem;
+        margin-left: $sidebar-width;
+        max-width: 100%;
+    }
+    .site-nav {
+        padding-top: 1rem;
     }
 }
