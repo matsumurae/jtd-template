@@ -127,7 +127,7 @@ blockquote {
 }
 @media (min-width: 50rem) {
     .site-header {
-        width: 15.5rem;
+        width: $sidebar-width;
     }
     .side-bar {
         padding-top: 3.75rem;

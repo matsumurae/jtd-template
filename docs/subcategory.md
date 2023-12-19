@@ -7,3 +7,5 @@ nav_order: 1
 ---
 
 # Subcategory
+
+Esto es un test de búsqueda.
