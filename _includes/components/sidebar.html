@@ -9,6 +9,8 @@ endcomment -%}
         <a href="{{ '/' | relative_url }}" class="site-title lh-tight"
             >{% include title.html %}</a
         >
+        {% if site.search_enabled != false %} {% include
+        components/search_header.html %} {% endif %}
         <button
             id="menu-button"
             class="site-button btn-reset"
@@ -20,6 +22,7 @@ endcomment -%}
             </svg>
         </button>
     </div>
+    <div id="side-bar-overlay" class="side-bar-overlay"></div>
 
     {% include_cached components/site_nav.html %} {% capture nav_footer_custom
     %} {%- include nav_footer_custom.html -%} {% endcapture %} {% if

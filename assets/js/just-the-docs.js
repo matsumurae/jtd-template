@@ -36,21 +36,33 @@ function initNav() {
   });
 
   const siteNav = document.getElementById('site-nav');
+  const navOpacity = document.getElementById('side-bar-overlay');
   const mainHeader = document.getElementById('main-header');
   const menuButton = document.getElementById('menu-button');
 
   disableHeadStyleSheets();
+
+  document.onclick = function(e){
+      if (!menuButton.contains(e.target) && !siteNav.contains(e.target) ) {
+        siteNav.classList.remove("nav-open");
+        navOpacity.classList.remove('nav-open');
+        menuButton.classList.remove('nav-open');
+        menuButton.ariaPressed = false;
+      }
+  }
 
   jtd.addEvent(menuButton, 'click', function(e){
     e.preventDefault();
 
     if (menuButton.classList.toggle('nav-open')) {
       siteNav.classList.add('nav-open');
-      mainHeader.classList.add('nav-open');
+      navOpacity.classList.add('nav-open');
+      // mainHeader.classList.add('nav-open');
       menuButton.ariaPressed = true;
     } else {
       siteNav.classList.remove('nav-open');
-      mainHeader.classList.remove('nav-open');
+      navOpacity.classList.remove('nav-open');
+      // mainHeader.classList.remove('nav-open');
       menuButton.ariaPressed = false;
     }
   });

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,700&display=swap");
+
 // https://just-the-docs.com/docs/utilities/color/
 $red: #dd2e2e;
 $yellow: #e7af06;
@@ -10,13 +12,53 @@ $grey: #959396;
 $pink: #f48fb1;
 $lime: #afb42b;
 $orange: #ef6c00;
+$white: #fff;
+
+$bg: #f0f5f8;
+$border: #cbd5e1;
+
+$navbar-height: 64px;
+
+$sidebar-bg: #1e293a;
+$sidebar-active: #0f172a;
+$sidebar-color: #e2e8f0;
+$sidebar-color-subcategory: #95a3b8;
 
 // Make template FULL size
 
 $sidebar-width: 16.5rem;
 
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: $bg;
+    height: 100vh;
+    padding-bottom: 0;
+}
+
+hr {
+    background-color: $border;
+}
+
 .site-footer {
     display: none;
+}
+
+.main-content-wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .main-content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer {
+        margin-top: auto;
+        border-top: 1px solid $border;
+    }
 }
 
 // Color text
@@ -117,33 +159,132 @@ blockquote {
 // Fixed navbar
 .main-header {
     position: fixed;
-    width: 100%;
+    width: calc(100% - $sidebar-width);
     z-index: 100;
 }
-@media (max-width: 50rem) {
-    .main-header .site-header {
-        display: none;
+.site-nav {
+    padding: 1rem;
+    background: $sidebar-bg;
+}
+.nav-list .nav-list-item {
+    .nav-list-expander {
+        color: $sidebar-color;
+        cursor: pointer;
+        &:hover {
+            background-image: none;
+        }
+    }
+    .nav-list-link {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        color: $sidebar-color;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 300;
+        &.active {
+            background: $sidebar-active;
+            font-weight: 700;
+        }
+        &:hover {
+            background-image: none;
+        }
+    }
+    & > .nav-list .nav-list-item .nav-list-link {
+        color: $sidebar-color-subcategory;
     }
 }
-@media (min-width: 50rem) {
+
+.side-bar {
+    background: $sidebar-bg;
+    .icon {
+        color: $white;
+    }
+    .site-title:hover {
+        background-image: none;
+    }
+    .site-button {
+        cursor: pointer;
+        &:hover {
+            background-image: none;
+            background: lighten($sidebar-bg, 10%);
+        }
+    }
     .site-header {
-        width: $sidebar-width;
+        text-align: center;
+        border-bottom: 0;
+    }
+    .site-logo {
+        background-position: center;
+    }
+}
+
+@media (max-width: 799px) {
+    .main {
+        height: calc(100% - $navbar-height);
+    }
+    .main-header {
+        display: none !important;
     }
     .side-bar {
-        padding-top: 3.75rem;
+        .site-title {
+            width: 6rem;
+            height: 100%;
+            flex-grow: 0;
+        }
+        .site-nav {
+            width: 290px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            right: -290px;
+            z-index: 1022;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+
+            &.nav-open {
+                right: 0;
+                transition: all 0.3s;
+            }
+        }
+        .side-bar-overlay {
+            display: none;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            background: rgba(51, 51, 51, 0.7);
+            z-index: 1021;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+            &.nav-open {
+                display: block;
+                opacity: 1;
+            }
+        }
+    }
+    .site-header .search-input {
+        left: 0;
+    }
+}
+@media (min-width: 800px) {
+    .site-header {
         width: $sidebar-width;
-        .site-header {
+        .search {
             display: none;
         }
+    }
+    .side-bar {
+        width: $sidebar-width;
     }
     .main {
         display: flex;
         height: 100%;
-        padding-top: 3.75rem;
         margin-left: $sidebar-width;
         max-width: 100%;
     }
-    .site-nav {
-        padding-top: 1rem;
+    .main-content-wrap {
+        padding-top: 3.75rem;
     }
 }
