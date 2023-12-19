@@ -20,8 +20,10 @@ $border: #cbd5e1;
 $navbar-height: 64px;
 
 $sidebar-bg: #1e293a;
-$sidebar-active: #0f172a;
+// $sidebar-active: #0f172a;
 $sidebar-color: #e2e8f0;
+$sidebar-color-inactive: #8391a2;
+$sidebar-color-hover: #bccee4;
 $sidebar-color-subcategory: #95a3b8;
 
 // Make template FULL size
@@ -32,7 +34,6 @@ body {
     font-family: "Roboto", sans-serif;
     background-color: $bg;
     height: 100vh;
-    padding-bottom: 0;
 }
 
 hr {
@@ -71,6 +72,12 @@ hr {
 }
 .text-orange {
     color: $orange;
+}
+
+.highlight,
+.highlight pre {
+    background: $sidebar-bg;
+    color: $white;
 }
 
 // Blockquote custom styles for speakers
@@ -169,24 +176,27 @@ blockquote {
 .nav-list .nav-list-item {
     .nav-list-expander {
         color: $sidebar-color;
+        height: 2.5rem;
         cursor: pointer;
         &:hover {
             background-image: none;
         }
     }
     .nav-list-link {
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        color: $sidebar-color;
+        padding: 0.5rem;
+        color: $sidebar-color-inactive;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 300;
         &.active {
-            background: $sidebar-active;
+            // background: $sidebar-active;
+            background-image: none;
+            color: $sidebar-color;
             font-weight: 700;
         }
         &:hover {
             background-image: none;
+            color: $sidebar-color-hover;
         }
     }
     & > .nav-list .nav-list-item .nav-list-link {
@@ -212,6 +222,7 @@ blockquote {
     .site-header {
         text-align: center;
         border-bottom: 0;
+        justify-content: space-between;
     }
     .site-logo {
         background-position: center;
@@ -269,6 +280,9 @@ blockquote {
     }
 }
 @media (min-width: 800px) {
+    .breadcrumb-nav {
+        margin-top: 1rem;
+    }
     .site-header {
         width: $sidebar-width;
         .search {
@@ -280,7 +294,6 @@ blockquote {
     }
     .main {
         display: flex;
-        height: 100%;
         margin-left: $sidebar-width;
         max-width: 100%;
     }

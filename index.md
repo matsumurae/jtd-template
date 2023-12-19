@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Index
+title: Home
 nav_order: 1
 ---
 
@@ -12,7 +12,7 @@ A simple-to-use, clean and customized theme made using [Just the Docs](https://j
 
 1. Multilanguage search.
 2. i18n support.
-3. Custom styles made for transcribing podcasts, to diferentiate between speakers.
+3. Custom styles made for transcribing podcasts, to diferentiate between speakers. Check them [here]({% link docs/ui-components/alerts.md %}).
 4. Full screen template versus Just the Docs originally condensed.
 5. Dashboard-inspired. You have a true mobile experience!
 
